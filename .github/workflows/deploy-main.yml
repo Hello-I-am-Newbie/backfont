@@ -15,4 +15,5 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
+            npm install -g pm2
             ./deploy.sh
