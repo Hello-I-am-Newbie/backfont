@@ -15,5 +15,10 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            npm install -g pm2
             ./deploy.sh
+            
+      - name: Find PM2 path
+        run: which pm2
+
+      - name: Check PM2 version
+        run: pm2 -v
