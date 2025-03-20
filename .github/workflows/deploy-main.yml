@@ -6,16 +6,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    steps:      
-      - name: Install PM2 globally  
-        run: npm install -g pm2
-    
-      - name: Find PM2 path
-        run: which pm2
-
-      - name: Check PM2 version
-        run: pm2 -v
-        
+    steps:   
       - name: executing remote ssh commands using key
         uses: appleboy/ssh-action@master
         with:
