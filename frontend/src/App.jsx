@@ -5,6 +5,15 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  function getHello() {
+    const greet = document.getElementById('greet');
+    fetch('http://localhost:4000/api/hello')
+    .then(reponse => reponse.json())
+    .then(data => greet.innerHTML = JSON.stringify(data))
+  }
+
+  // Similar to componentDidMount and componentDidupdate:
+  useEffect(getHello)
 
   return (
     <>
@@ -21,6 +30,10 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+
+        <p>
+          api called: <code id="greet"></code>
+        </p>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
